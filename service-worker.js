@@ -1,4 +1,4 @@
-importScripts ('https://storage.googleapis.com/workbox-cdn/release/3.6.3/workbox-sw.js');
+importScripts ('https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js');
 
 const base_URL = 'https://api.football-data.org/v2/';
 const googlefontIcon_URL = 'https://fonts.googleapis.com/icon?family=Material+Icons';
