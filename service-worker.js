@@ -55,51 +55,14 @@ workbox.precaching.precacheAndRoute([
       { url: "/js/nav.js", revision: "1"},
       { url: "/js/page.js", revision: "1"},
       { url: "/js/registersw.js", revision: "1"},
-      { url: "/js/view.js", revision: "1"},
-      { url: "https://fonts.googleapis.com/icon?family=Material+Icons", revision: "1"},
-      { url: "https://fonts.gstatic.com/s/materialicons/v54/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2", revision: "1"},
-      { url: "https://code.jquery.com/jquery-2.1.1.min.js", revision: "1"},
-      { url: "https://unpkg.com/snarkdown@1.0.2/dist/snarkdown.umd.js", revision: "1"},
-      { url: "https://fonts.googleapis.com/css?family=Muli:400,400i|Roboto+Condensed:400,600,700", revision: "1"}, 
+      { url: "/js/view.js", revision: "1"}, 
     ],{
     ignoreUrlParametersMatching: [/.*/]
     }
     );
-    
-    workbox.routing.registerRoute(
-      /\.(?:png|gif|jpg|jpeg|svg|)$/,
-      workbox.strategies.cacheFirst({
-        cacheName: "image",
-        plugins: [
-          new workbox.expiration.Plugin({
-            maxEntries: 50,
-            maxAgeSeconds: 60 * 60 * 24 * 365,
-          }),
-        ],
-      })
-    );
 
     workbox.routing.registerRoute(
-      new RegExp ("/page/"),
-      workbox.strategies.staleWhileRevalidate({
-        cacheName: "pages"
-      })
-    );
-    workbox.routing.registerRoute(
-      /\.(?:png|gif|jpg|jpeg|svg|)$/,
-      workbox.strategies.cacheFirst({
-        cacheName: "image",
-        plugins: [
-          new workbox.expiration.Plugin({
-            maxEntries: 50,
-            maxAgeSeconds: 60 * 60 * 24 * 365,
-          }),
-        ],
-      })
-    );
-
-    workbox.routing.registerRoute(
-      new RegExp ("/page/"),
+      new RegExp ("/pages/"),
       workbox.strategies.staleWhileRevalidate({
         cacheName: "pages"
       })
@@ -109,6 +72,7 @@ workbox.precaching.precacheAndRoute([
       new RegExp ('https://api.football-data.org/v2/'),
       workbox.strategies.staleWhileRevalidate()
     )
+
 
 self.addEventListener('push', function(event) {
     var body;
