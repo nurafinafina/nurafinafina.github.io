@@ -7,6 +7,11 @@ const unpkg_URL = 'https://unpkg.com/snarkdown@1.0.2/dist/snarkdown.umd.js';
 const googlefontcss_URL = 'https://fonts.googleapis.com/css?family=Muli:400,400i|Roboto+Condensed:400,600,700';
 const jquery_URL = 'https://code.jquery.com/jquery-2.1.1.min.js';
 
+if (workbox)
+  console.log(`Workbox berhasil dimuat`);
+else
+  console.log(`Workbox gagal dimuat`);
+
 workbox.precaching.precacheAndRoute([
       { url: "/", revision: "1"},
       { url: "/css/maskable_icon192x192.png", revision: "1"},
@@ -61,14 +66,14 @@ workbox.precaching.precacheAndRoute([
     }
     );
 
-    workbox.routing.registerRoute(
+workbox.routing.registerRoute(
       new RegExp ("/pages/"),
       workbox.strategies.staleWhileRevalidate({
         cacheName: "pages"
       })
     );
 
-    workbox.routing.registerRoute(
+workbox.routing.registerRoute(
       new RegExp ('https://api.football-data.org/v2/'),
       workbox.strategies.staleWhileRevalidate()
     )
