@@ -1,12 +1,5 @@
 importScripts ('https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js');
 
-const base_URL = 'https://api.football-data.org/v2/';
-const googlefontIcon_URL = 'https://fonts.googleapis.com/icon?family=Material+Icons';
-const fontgstatic_URL = 'https://fonts.gstatic.com/s/materialicons/v54/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2';
-const unpkg_URL = 'https://unpkg.com/snarkdown@1.0.2/dist/snarkdown.umd.js';
-const googlefontcss_URL = 'https://fonts.googleapis.com/css?family=Muli:400,400i|Roboto+Condensed:400,600,700';
-const jquery_URL = 'https://code.jquery.com/jquery-2.1.1.min.js';
-
 if (workbox) {
   console.log(`Workbox berhasil dimuat`);
 
@@ -63,11 +56,36 @@ workbox.precaching.precacheAndRoute([
     ignoreUrlParametersMatching: [/.*/]
     }
     );
-
-workbox.routing.registerRoute(
-      new RegExp ('https://api.football-data.org/v2/'),
+    workbox.routing.registerRoute(
+      new RegExp('/pages/'),
       workbox.strategies.staleWhileRevalidate()
     );
+    workbox.routing.registerRoute(
+          new RegExp ('https://api.football-data.org/v2/'),
+          workbox.strategies.staleWhileRevalidate()
+        );
+    workbox.routing.registerRoute(
+          new RegExp ('https://fonts.googleapis.com/icon?family=Material+Icons'),
+          workbox.strategies.staleWhileRevalidate()
+        );
+    workbox.routing.registerRoute(
+          new RegExp ('https://fonts.gstatic.com/s/materialicons/v54/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2'),
+          workbox.strategies.staleWhileRevalidate()
+        );
+    workbox.routing.registerRoute(
+          new RegExp ('https://unpkg.com/snarkdown@1.0.2/dist/snarkdown.umd.js'),
+          workbox.strategies.staleWhileRevalidate()
+        );
+    workbox.routing.registerRoute(
+          new RegExp ('https://fonts.googleapis.com/css?family=Muli:400,400i|Roboto+Condensed:400,600,700'),
+          workbox.strategies.staleWhileRevalidate()
+        );
+    workbox.routing.registerRoute(
+          new RegExp ('https://code.jquery.com/jquery-2.1.1.min.js'),
+          workbox.strategies.staleWhileRevalidate()
+        );
+    
+    
 }
 else{
   console.log(`Workbox gagal dimuat`);
