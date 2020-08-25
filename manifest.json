@@ -1,0 +1,32 @@
+{
+    "name": "My PWA Football",
+    "short_name": "Football",
+    "description": "Aplikasi PWA Football",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#00897B",
+    "theme_color": "#00897B",
+    "gcm_sender_id": "626157787419",
+    "icons": [
+        {
+            "src": "/css/maskable_icon192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+          },
+          {
+            "src": "/css/maskable_icon256x256.png",
+            "sizes": "256x256",
+            "type": "image/png",
+            "purpose": "any maskable"
+          },
+          {
+            "src": "/css/maskable_icon512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+          }
+        
+    ]
+    
+}
