@@ -51,7 +51,13 @@ workbox.precaching.precacheAndRoute([
       { url: "/js/nav.js", revision: "1"},
       { url: "/js/page.js", revision: "1"},
       { url: "/js/registersw.js", revision: "1"},
-      { url: "/js/view.js", revision: "1"}, 
+      { url: "/js/view.js", revision: "1"},
+      { url: "https://fonts.googleapis.com/icon?family=Material+Icons", revision: "1"},
+      { url: "https://fonts.gstatic.com/s/materialicons/v54/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2", revision: "1"},
+      { url: "https://unpkg.com/snarkdown@1.0.2/dist/snarkdown.umd.js", revision: "1"},
+      { url: "https://fonts.googleapis.com/css?family=Muli:400,400i|Roboto+Condensed:400,600,700", revision: "1"},
+      { url: "https://code.jquery.com/jquery-2.1.1.min.js", revision: "1"},
+
     ],{
     ignoreUrlParametersMatching: [/.*/]
     }
@@ -65,18 +71,6 @@ workbox.precaching.precacheAndRoute([
           workbox.strategies.staleWhileRevalidate()
         );
     workbox.routing.registerRoute(
-          new RegExp ('https://fonts.googleapis.com/icon?family=Material+Icons'),
-          workbox.strategies.staleWhileRevalidate()
-        );
-    workbox.routing.registerRoute(
-          new RegExp ('https://fonts.gstatic.com/s/materialicons/v54/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2'),
-          workbox.strategies.staleWhileRevalidate()
-        );
-    workbox.routing.registerRoute(
-          new RegExp ('https://unpkg.com/snarkdown@1.0.2/dist/snarkdown.umd.js'),
-          workbox.strategies.staleWhileRevalidate()
-        );
-    workbox.routing.registerRoute(
           new RegExp ('https://fonts.googleapis.com/css?family=Muli:400,400i|Roboto+Condensed:400,600,700'),
           workbox.strategies.staleWhileRevalidate()
         );
@@ -84,8 +78,6 @@ workbox.precaching.precacheAndRoute([
           new RegExp ('https://code.jquery.com/jquery-2.1.1.min.js'),
           workbox.strategies.staleWhileRevalidate()
         );
-    
-    
 }
 else{
   console.log(`Workbox gagal dimuat`);
