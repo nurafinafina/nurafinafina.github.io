@@ -70,14 +70,6 @@ workbox.precaching.precacheAndRoute([
           new RegExp ('https://api.football-data.org/v2/'),
           workbox.strategies.staleWhileRevalidate()
         );
-    workbox.routing.registerRoute(
-          new RegExp ('https://fonts.googleapis.com/css?family=Muli:400,400i|Roboto+Condensed:400,600,700'),
-          workbox.strategies.staleWhileRevalidate()
-        );
-    workbox.routing.registerRoute(
-          new RegExp ('https://code.jquery.com/jquery-2.1.1.min.js'),
-          workbox.strategies.staleWhileRevalidate()
-        );
 }
 else{
   console.log(`Workbox gagal dimuat`);
