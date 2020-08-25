@@ -78,11 +78,31 @@ workbox.routing.registerRoute(
     cacheName: "pages"
   })
 );
+workbox.routing.registerRoute(
+  /\.(?:png|gif|jpg|jpeg|svg|)$/,
+  workbox.strategies.cacheFirst({
+    cacheName: "image",
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 50,
+        maxAgeSeconds: 60 * 60 * 24 * 365,
+      }),
+    ],
+  })
+);
+
+workbox.routing.registerRoute(
+  new RegExp ("/page/"),
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: "pages"
+  })
+);
 
 workbox.routing.registerRoute(
   new RegExp ('https://api.football-data.org/v2/'),
   workbox.strategies.staleWhileRevalidate()
 )
+
 
 self.addEventListener('push', function(event) {
     var body;
