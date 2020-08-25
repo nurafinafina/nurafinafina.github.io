@@ -44,7 +44,7 @@ function requestPermission() {
             navigator.serviceWorker.getRegistration().then(function(registration) {
                 registration.pushManager.subscribe({
                     userVisibleOnly: true,
-                    applicationServerKey: urlBase64ToUint8Array("BLMvOR0jgsNwQTtVUTeFX1rIL4WS6b30vLU4W5vLMsVeUV0AfY2s_rLN-SIjjxKVEqt5x5ltCazDmXg6lkvCViQ")
+                    applicationServerKey: urlBase64ToUint8Array("BGT8RM38Z555b8-NZSyfQOaZK-ydz9toT9jQ-9k1gjL_XSVJize7J7v1H8qPTPgO4h2C98g7ZjvZokp8nbCpq9E")
                 }).then(function(subscribe) {
                     console.log('Berhasil melakukan subscribe dengan endpoint: ', subscribe.endpoint);
                     console.log('Berhasil melakukan subscribe dengan p256dh key: ', btoa(String.fromCharCode.apply(
