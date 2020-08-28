@@ -63,11 +63,11 @@ workbox.precaching.precacheAndRoute([
     }
     );
     workbox.routing.registerRoute(
-      new RegExp('/pages/'),
+      ({url}) => url.origin,
       workbox.strategies.staleWhileRevalidate()
     );
     workbox.routing.registerRoute(
-          new RegExp ('https://api.football-data.org/v2/'),
+          ({url}) => url.origin === 'https://api.football-data.org/v2/',
           workbox.strategies.staleWhileRevalidate()
         );
 }
