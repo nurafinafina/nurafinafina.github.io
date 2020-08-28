@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site" : "football-liga",
     "public": "public",
     "ignore": [
       "firebase.json",
