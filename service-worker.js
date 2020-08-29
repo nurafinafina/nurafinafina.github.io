@@ -63,6 +63,18 @@ workbox.precaching.precacheAndRoute([
     }
     );
     workbox.routing.registerRoute(
+      /\.(?:png|gif|jpg|jpeg|svg)$/,
+      workbox.strategies.cacheFirst({
+          cacheName: "images",
+          plugins: [
+              new workbox.expiration.Plugin({
+                  maxEntries: 50,
+                  maxAgeSeconds: 7 * 24 * 60 * 60,
+              }),
+          ],
+      })
+  );
+    workbox.routing.registerRoute(
       ({url}) => url.origin,
       workbox.strategies.staleWhileRevalidate()
     );
