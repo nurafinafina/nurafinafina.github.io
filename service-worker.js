@@ -74,10 +74,7 @@ workbox.precaching.precacheAndRoute([
           ],
       })
   );
-    workbox.routing.registerRoute(
-      ({url}) => url.origin,
-      workbox.strategies.staleWhileRevalidate()
-    );
+    
     workbox.routing.registerRoute(
           ({url}) => url.origin === 'https://api.football-data.org/v2/',
           workbox.strategies.staleWhileRevalidate()
