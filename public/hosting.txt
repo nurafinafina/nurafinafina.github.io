@@ -1,5 +1,0 @@
-Firebase deploy:
-https://football-liga-workbox.web.app/
-
-Github repo:
-https://github.com/nurafinafina/nurafinafina.github.io
