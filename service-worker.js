@@ -11,7 +11,6 @@ workbox.precaching.precacheAndRoute([
       { url: "/manifest.json", revision: "1"},
       { url: "/nav.html", revision: "1"},
       { url: "/index.html", revision: "1"},
-      { url: "/public/index.html", revision: "1"},
       { url: "/detailTeam.html", revision: "1"},
       { url: "/detailMatches.html", revision: "1"},
       { url: "/pages/home.html", revision: "1"},
